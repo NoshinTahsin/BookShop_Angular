@@ -1,0 +1,10 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+* {box-sizing: border-box;}
+
+body,p { 
+  margin: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #43484D;
+}

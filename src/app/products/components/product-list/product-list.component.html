@@ -1,0 +1,49 @@
+
+<!--<div *ngFor="let a of [1,2,3,4]">
+    <a routerLink="/products/{{a}}/details">Details For {{a}}</a>
+</div>
+<br><br>
+<div *ngFor="let a of [1,2,3,4]">
+    <a routerLink="/products/{{a}}/edit">Edit For {{a}}</a>
+</div>-->
+
+
+<section class="product-list">
+    <div *ngFor="let product of productList; let i=index" class="card">
+        <div class="product-image">
+            <img src={{product.img}} alt="Book_Cover">
+        </div> 
+        <div class="product-info">
+            <h4 class="title">{{product.title}}</h4>
+            <h4 class="author">{{product.author}} </h4>
+            <h4 class="des">{{product.des}}</h4>
+            <h4 class="price">{{product.price}}</h4>
+        </div>  
+    
+        <!--*ngIf="!isClicked; else elseBlock" #elseBlock-->
+                        
+        <div class="add-cart-action">
+            <button (click)="onAdding(product,0)" #buttonId
+            class="add-cart-btn button-{{product.id}}" data-id="{{product.id}}">Add to Cart</button>
+        </div>
+    
+        <div class="incdec">
+            <div class="quantity di-button-${product.id}">
+                <button (click)="onAdding(product,-1)" class="minus-btn minus-btn-{{product.id}}" data-id="{{product.id}}" id="minus" type="button"   name="button">
+                    -
+                </button>
+                <span class="pro-quantity pro-quantity-{{product.id}}">{{product.quantity}}</span>
+                    
+                <button (click)="onAdding(product,1)" class="plus-btn plus-btn-{{product.id}}" data-id="{{product.id}}" id="plus" type="button"   name="button">
+                    +
+                </button>
+            </div>
+        </div>
+            
+    
+        <a routerLink="/products/{{product.title}}/details">Details For {{product.title}}</a>
+        <a routerLink="/products/{{product.title}}/edit">Edit For {{product.title}}</a>
+    
+    </div>
+</section>
+
