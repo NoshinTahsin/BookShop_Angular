@@ -31,7 +31,6 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
      // { path: '404', component: ShoppingCartComponent},
       {path: '**', redirectTo: '404'}
     ])
-
     
   ],
   providers: [

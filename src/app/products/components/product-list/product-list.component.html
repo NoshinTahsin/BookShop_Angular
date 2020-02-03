@@ -10,14 +10,19 @@
 
 <section class="product-list">
     <div *ngFor="let product of productList; let i=index" class="card">
-        <div class="product-image">
-            <img src={{product.img}} alt="Book_Cover">
-        </div> 
+
+        <div class="container product-image">
+            <img src={{product.img}} alt="Avatar" class="image" style="width:100%">
+            <div class="middle">
+              <div class="text" (click)="viewDetails(product)">View Details</div>
+            </div>
+        </div>
+
         <div class="product-info">
             <h4 class="title">{{product.title}}</h4>
-            <h4 class="author">{{product.author}} </h4>
+           <!-- <h4 class="author">{{product.author}} </h4>
             <h4 class="des">{{product.des}}</h4>
-            <h4 class="price">{{product.price}}</h4>
+            <h4 class="price">{{product.price}}</h4> -->
         </div>  
     
         <!--*ngIf="!isClicked; else elseBlock" #elseBlock-->

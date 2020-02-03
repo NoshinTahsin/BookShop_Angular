@@ -1,5 +1,7 @@
+import { ProductDetailsComponent } from './../product-details/product-details.component';
 import { ProductListService } from './product-list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -12,8 +14,13 @@ export class ProductListComponent implements OnInit {
   productList = [];
   isActive=false;
   isClicked=false;
+  pdc:ProductDetailsComponent; 
   counter;
-  constructor(private service:ProductListService){
+  @Output() change = new EventEmitter();
+  constructor(
+    private service:ProductListService, 
+    private router: Router
+  ){
       
   } 
 
@@ -43,9 +50,23 @@ export class ProductListComponent implements OnInit {
     //const index=parseInt(dataId)-1;
     //let product=this.productList[index];
 
+    let flag=true;
+
     if(num==0){
-       cartProduct = [...cartProduct, product];
-       this.setLocalStorage('cart-product', cartProduct);
+      let it=cartProduct.length;
+      for(let i=0;i<it;i++){
+       if(product.id==cartProduct[i].id){
+         cartProduct[i].quantity+=1;
+         this.setLocalStorage('cart-product', cartProduct);
+         flag=false;
+       }
+     }
+
+     if(flag){
+      cartProduct = [...cartProduct, product];
+      this.setLocalStorage('cart-product', cartProduct);
+     }
+
     }
 
     else{
@@ -62,6 +83,12 @@ export class ProductListComponent implements OnInit {
     if(this.isClicked){
       // replacedom 
     }
+  }
+
+  viewDetails(product){
+    
+    this.router.navigate([`/products/${product.id}/details`]);
+
   }
 
   getLocalStorage(name, initValue=[])  {
@@ -84,3 +111,4 @@ export class ProductListComponent implements OnInit {
   }
 
 }
+

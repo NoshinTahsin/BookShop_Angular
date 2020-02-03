@@ -1,3 +1,4 @@
+import { ProductListComponent } from './../product-list/product-list.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -7,8 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  
   proId: string;
-  cartProductList;
+  productList;
+
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router
@@ -17,38 +20,75 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cartProductList=this.getLocalStorage('cart-product');
-    console.log("cartProductList");
-    console.log(this.cartProductList);
+    console.log("Initialize hoise");
+    console.log("showing details");
+    this.productList=this.getLocalStorage('product-list');
+    console.log(this.productList);
+    let it=this.productList.length;
   } 
 
   backtoProducty() {
     this.router.navigate([`/products`]);
   }
 
-  showCart(){
+  showDetails(){
+  
    
+   /*for(let i=0;i<it;i++){
+      if(this.proId==productList[i].id){
+        let product = Object.assign({}, productList[i]);
+        console.log(product);
+      }
+   }*/
+
   }
 
-  onRemoving(cartItem){
-    console.log(cartItem );
-    console.log(" button was removed");
-    this.removeFromCart(cartItem);
+  onAdding(product, num){
+    console.log(product );
+    console.log(" button was clicked");
+ 
+    this.addToCart(product,num);
   }
 
-  removeFromCart(cartItem){
-    console.log(cartItem);
+  addToCart(product, num){
+    console.log(product +" added to cart" );
 
-    this.cartProductList=this.getLocalStorage('cart-product');
-    let index=parseInt(cartItem.id);
-    index--;
-    console.log(index);
-    var removed=this.cartProductList.splice(index,1);
+    let cartProduct=this.getLocalStorage('cart-product');
+    //const index=parseInt(dataId)-1;
+    //let product=this.productList[index];
+
+    let flag=true;
+
+    if(num==0){
+      let it=cartProduct.length;
+      for(let i=0;i<it;i++){
+       if(product.id==cartProduct[i].id){
+         cartProduct[i].quantity+=1;
+         this.setLocalStorage('cart-product', cartProduct);
+         flag=false;
+       }
+     }
+
+     if(flag){
+      cartProduct = [...cartProduct, product];
+      this.setLocalStorage('cart-product', cartProduct);
+     }
+
+    }
+
+    else{
+      let it=cartProduct.length;
+       for(let i=0;i<it;i++){
+        if(product.id==cartProduct[i].id){
+          cartProduct[i].quantity+=num;
+          this.setLocalStorage('cart-product', cartProduct);
+        }
+      }
+    }
     
-    console.log(removed);
-    this.setLocalStorage('cart-product', this.cartProductList);
-    let counter = this.cartProductList.length;
+    
   }
+
 
   getLocalStorage(name, initValue=[])  {
     const data = localStorage.getItem(name);
@@ -57,7 +97,7 @@ export class ProductDetailsComponent implements OnInit {
 
   setLocalStorage(name, data){
     const jsonString = JSON.stringify(data);
-    localStorage.setItem(name, jsonString); 
+    localStorage.setItem(name, jsonString);
   }
   
    IsJsonString(str) {
@@ -68,6 +108,11 @@ export class ProductDetailsComponent implements OnInit {
     }
     return true;
   }
+
+
+  
+
+  
 
 
 }

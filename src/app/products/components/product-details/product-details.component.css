@@ -1,6 +1,43 @@
-.cart-card .remove-cart-btn {
-    /* border: none; */
-  /* outline: 0; */
+ .outer{
+   margin: 50px;
+ }
+ .flex-container{
+   display: flex;
+   align-content: center;
+ }
+
+ .card{
+   display: flex;
+   flex:33.33%;
+   width: 60%;
+   align-self: center;
+   float: left;
+ }
+
+ .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card .card-img-top{
+  display: flex;
+  flex: 50%;
+  width: 50%;
+ 
+}
+
+.card .card-body{
+  flex: 100%;
+  width: 100%;
+  height: 2000px;
+  margin: 155px;
+}
+
+.card .add-cart-btn {
+  border: none;
+  outline: 0;
   padding: 12px;
   color: white;
   background-color: #4CAF50;
@@ -8,81 +45,16 @@
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-  /* position: relative; */
-  margin: 50 0 0 20;
-  height: 70px;
-  width: 100px;
+  height: 50px;
 }
 
-.cart-card .remove-cart-btn:hover {
-background-color: #46a049;
+.card .add-cart-btn:hover {
+  background-color: #46a049;
 }
 
-.disable {
-  pointer-events: none;
-  opacity: 0.7;
+.minus-btn img {
+  margin-bottom: 3px;
 }
-
-
-.nav-list-container{
-background-color: #f1f1f1;
-display: flex; 
-}
-
-.nav-list {
-margin: 10px;
-}
-
-.nav-list .cart-card { 
-display: flex;
-flex-direction: row;  
-justify-content: space-between;
-
-}
-
-.button {
-background-color: #4CAF50; /* Green */
-border: none;
-color: white;
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-margin: 4px 2px;
-cursor: pointer;
-}
-
-.cart-card .cart-product-image img {
-  
-  flex-wrap: wrap;
-  height: 200px;
-}
-
-.cart-card .cart-product-info {
-
-  text-align: center;
-  /* flex: 1 1 50%; */
-  margin: 5px 10px 20px 30px;
-  
-
-}
-
-.cart-card .cart-product-info .cart-title {
- /* white-space: pre-wrap; */
- overflow:hidden;
- text-overflow:ellipsis;
- width: 180px;
-}
-
-.cart-card .cart-product-info .cart-author {
-/* white-space: pre-wrap; */
- overflow:hidden;
- text-overflow:ellipsis;
-}
-
-.cart-card .cart-product-info .cart-des {
-/* white-space: pre-wrap; */
- overflow:hidden;
- text-overflow:ellipsis;
+.plus-btn img {
+  margin-top: 2px;
 }
