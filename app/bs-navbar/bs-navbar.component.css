@@ -1,0 +1,230 @@
+.sidenav {
+    height: 50%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 122px;
+    right: 0;
+    background-color: rgb(59, 56, 56);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    }
+    
+    .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+    color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    }
+    
+    @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    }
+
+    .logo {
+        overflow: hidden;
+        background-color: white;
+        padding: 10px 10px;
+      }
+      
+      .header-right {
+        float: right;
+      }
+      
+      .cartalign{
+        padding: 20px;
+      }
+
+      
+
+/* Product Quantity */
+.quantity {
+    padding-top: 5px;
+    max-width: 100%;
+    /*margin-right: 60px;*/
+  }
+  .quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+
+  /* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: #ff571a;
+    color: white;
+  }
+  
+  .topnav .cart-image {
+    position:relative;
+    margin-right:30px;
+    float: right;
+    width: 40px;
+    height: 40px;
+  
+  }
+  
+  
+  .topnav .cart-image .fa .fa-shopping-cart  {
+      width: 40px;
+      height: 40px; 
+  }
+  
+  .cart-image{
+    padding-top: 10px;
+    right:30px;  
+  }
+  
+  .topnav .cart-image .counter {
+      position: absolute;
+      top: 0;
+      right: -5px;
+      padding: 3px 7px;
+      background-color: #ff571a;
+      color: white; 
+      font-size: 12px;
+      border-radius: 20px;
+      text-align: center;
+      vertical-align: top;
+  }
+
+  
+@media screen and (max-width: 500px) {
+   
+    .header-right {
+      float: none;
+    }
+  }
+  
+
+  .cart-card .remove-cart-btn {
+    /* border: none; */
+  /* outline: 0; */
+  padding: 12px;
+  color: white;
+  background-color: #4CAF50;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  /* position: relative; */
+  margin: 50 0 0 20;
+  height: 70px;
+  width: 100px;
+}
+
+.cart-card .remove-cart-btn:hover {
+background-color: #46a049;
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+
+.nav-list-container{
+background-color: #f1f1f1;
+display: flex; 
+}
+
+.nav-list {
+margin: 10px;
+}
+
+.nav-list .cart-card { 
+display: flex;
+flex-direction: row;  
+justify-content: space-between;
+
+}
+
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.cart-card .cart-product-image img {
+  
+  flex-wrap: wrap;
+  height: 200px;
+}
+
+.cart-card .cart-product-info {
+
+  text-align: center;
+  /* flex: 1 1 50%; */
+  margin: 5px 10px 20px 30px;
+  
+
+}
+
+.cart-card .cart-product-info .cart-title {
+ /* white-space: pre-wrap; */
+ overflow:hidden;
+ text-overflow:ellipsis;
+ width: 180px;
+}
+
+.cart-card .cart-product-info .cart-author {
+/* white-space: pre-wrap; */
+ overflow:hidden;
+ text-overflow:ellipsis;
+}
+
+.cart-card .cart-product-info .cart-des {
+/* white-space: pre-wrap; */
+ overflow:hidden;
+ text-overflow:ellipsis;
+}

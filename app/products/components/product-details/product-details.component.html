@@ -1,0 +1,44 @@
+<div *ngFor="let product of productList" >
+    <div *ngIf="product.id==this.proId" class=" flex-container" >
+       <div class="card">
+        <div class="   " >
+            <img class="card-img-top" src="{{product.img}}" alt="Card image">
+        </div>
+        <div class="   ">
+            <div class="card-body" >
+                <h4 class="card-title">Title : {{product.title}}</h4>
+                <div class="auth">
+                    <img src="assets/tale.jfif" alt="Avatar" class="avatar">
+                    <h4 class="author">Author : {{product.author}} </h4>
+                </div>
+                <h4 class="des">Description : {{product.des}}</h4>
+                <h4 class="price">Price : {{product.price}}</h4>
+
+                <a routerLink="/products/{{product.id}}/edit">Edit For {{product.title}}</a>
+                 
+                <div class="add-cart-action" style="margin-top:100px">
+                    <button (click)="onAdding(product,0)" #buttonId
+                    class="add-cart-btn button-{{product.id}}" data-id="{{product.id}}">Add to Cart</button>
+                </div>
+        
+                <div class="incdec"  >
+                    <div class="quantity di-button-${product.id}">
+                        <button (click)="onAdding(product,-1)" class="minus-btn minus-btn-{{product.id}}" data-id="{{product.id}}" id="minus" type="button"   name="button">
+                            -
+                        </button>
+                        <span class="pro-quantity pro-quantity-{{product.id}}">{{product.quantity}}</span>
+                            
+                        <button (click)="onAdding(product,1)" class="plus-btn plus-btn-{{product.id}}" data-id="{{product.id}}" id="plus" type="button"   name="button">
+                            +
+                        </button>
+                    </div>
+                </div>     
+            </div>
+        </div> 
+       </div>   
+        
+    </div>
+</div>
+
+
+ 
